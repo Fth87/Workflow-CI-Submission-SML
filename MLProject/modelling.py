@@ -4,7 +4,7 @@ import pandas as pd
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
-
+import os
 # 1. Load Data
 data = load_iris()
 X = pd.DataFrame(data.data, columns=data.feature_names)
@@ -12,8 +12,9 @@ y = data.target
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# 2. Set Experiment
-mlflow.set_tracking_uri("http://localhost:5000")
+if not os.environ.get("GITHUB_ACTIONS"):
+    # Kalau TIDAK di GitHub Actions (artinya di laptop), pakai localhost
+    mlflow.set_tracking_uri("http://localhost:5000")
 mlflow.set_experiment("Basic_Submission_Iris")
 
 # 3. Training & Autolog
