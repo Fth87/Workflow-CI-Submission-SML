@@ -12,4 +12,4 @@ jobs:
     - name: Install dependencies
       run: pip install mlflow scikit-learn pandas
     - name: Train Model
-      run: python MLProject/modelling.py
+      run: mlflow run MLProject/
