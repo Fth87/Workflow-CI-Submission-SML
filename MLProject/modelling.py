@@ -17,20 +17,13 @@ y = data.target
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
+# Autolog akan otomatis mencatat semua parameter, metrik, dan model
 mlflow.sklearn.autolog() 
 
 model = RandomForestClassifier(n_estimators=n_estimators, max_depth=max_depth)
 model.fit(X_train, y_train)
 
-mlflow.set_tag("developer", "Fatih_Fawwaz")
-mlflow.log_param("n_estimators", n_estimators)
-mlflow.log_param("max_depth", max_depth)
-
-# Log Model tanpa registry di GitHub Actions untuk menghindari permission issues
-if os.environ.get("GITHUB_ACTIONS"):
-    mlflow.sklearn.log_model(model, "model")
-else:
-    # Di lokal, gunakan model registry
-    mlflow.sklearn.log_model(model, "model", registered_model_name="CancerModelBasic")
-
+# Evaluasi model
+accuracy = model.score(X_test, y_test)
+print(f"Model Accuracy: {accuracy:.4f}")
 print("Training Selesai. Cek Dashboard MLflow.")
