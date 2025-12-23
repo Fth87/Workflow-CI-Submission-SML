@@ -13,3 +13,5 @@ jobs:
         run: pip install mlflow scikit-learn pandas
       - name: Train Model
         run: mlflow run MLProject/ --env-manager=local --experiment-name="Basic_Submission_Cancer"
+        env:
+          MLFLOW_TRACKING_URI: file:./mlruns
