@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1766472268122
+current_stage: None
+description: null
+last_updated_timestamp: 1766472268122
+name: CancerModelBasic
+run_id: 6839e9f57e8b416da2c253e22efa3cb6
+run_link: null
+source: file:///media/fatih-fawwaz/New%20Volume/Event%20dan%20seminar/Asah%20dicoding/FP%20MSML/Repo_Workflow_CI/mlruns/454843015713830597/6839e9f57e8b416da2c253e22efa3cb6/artifacts/model
+status: READY
+status_message: null
+storage_location: file:///media/fatih-fawwaz/New%20Volume/Event%20dan%20seminar/Asah%20dicoding/FP%20MSML/Repo_Workflow_CI/mlruns/454843015713830597/6839e9f57e8b416da2c253e22efa3cb6/artifacts/model
+user_id: null
+version: 1

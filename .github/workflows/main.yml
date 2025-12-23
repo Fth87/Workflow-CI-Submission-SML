@@ -4,12 +4,12 @@ jobs:
   train:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.9'
-    - name: Install dependencies
-      run: pip install mlflow scikit-learn pandas
-    - name: Train Model
-      run: mlflow run MLProject/
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      - name: Install dependencies
+        run: pip install mlflow scikit-learn pandas
+      - name: Train Model
+        run: mlflow run MLProject/ --env-manager=local --experiment-name="Basic_Submission_Cancer"
